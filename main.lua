@@ -29,6 +29,6 @@ function main(Message)
       Ack = ACKcustomAck(Message)
    end
    iguana.logInfo("#ack Generated ACK\n"..Ack, MessageId)
-   component.setStatus{data=CARDupdate("Data last received at", os.date("%Y/%m/%d %H:%M:%S"))}
+   ui.setStatusMessage{data=CARDupdate("Data last received at", os.date("%Y/%m/%d %H:%M:%S"))}
    return Ack
 end
