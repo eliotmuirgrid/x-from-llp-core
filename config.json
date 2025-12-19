@@ -4,73 +4,73 @@
             "default": "65430",
             "name": "Port",
             "options": "",
-            "type": "port"
+            "type": "Port"
         },
         {
             "default": "true",
-            "name": "EnableConnectionTimeout",
+            "name": "Enable Connection Timeout",
             "options": "",
-            "type": "bool"
+            "type": "Bool"
         },
         {
             "default": "30",
-            "name": "ConnectionTimeout",
+            "name": "Timeout After",
             "options": "",
-            "type": "number"
+            "type": "Number"
         },
         {
             "default": "",
-            "name": "SSLCertificate",
+            "name": "SSL Certificate",
             "options": "",
-            "type": "file"
+            "type": "File"
         },
         {
             "default": "",
-            "name": "SSLKey",
+            "name": "SSL Key",
             "options": "",
-            "type": "file"
+            "type": "File"
         },
         {
             "default": "false",
-            "name": "VerifyPeer",
+            "name": "Verify Peer",
             "options": "",
-            "type": "bool"
+            "type": "Bool"
         },
         {
             "default": "",
-            "name": "CaFile",
+            "name": "Certificate Authority File",
             "options": "",
-            "type": "file"
+            "type": "File"
         },
         {
-            "default": "",
-            "name": "MessageEncoding",
-            "options": "",
-            "type": "string"
+            "default": "Use System Default",
+            "name": "Message Encoding",
+            "options": "Use System Default,Western (Windows-1252),Chinese (BIG5-HKSCS),Chinese (GB18030),Chinese (GB2312),Chinese (GBK),Japanese (ISO-2022-JP),Korean (ISO-2022-KR),Western (ISO-8859-1),Central European (ISO-8859-2),South European (ISO-8859-3),Central European (ISO-8859-4),Cyrillic (ISO-8859-5),Arabic (ISO-8859-6),Greek (ISO-8859-7),Hebrew (ISO-8859-8),Turkish (ISO-8859-9),Chinese (big5),Japanese (eucJP),Japanese (sjis),Unicode (UTF-8)",
+            "type": "List"
         },
         {
             "default": "\\x0B",
-            "name": "LLPPrefix",
+            "name": "LLP Prefix",
             "options": "",
-            "type": "string"
+            "type": "String"
         },
         {
             "default": "\\x1C\\x0D",
-            "name": "LLPSuffix",
+            "name": "LLP Suffix",
             "options": "",
-            "type": "string"
+            "type": "String"
         },
         {
             "default": "Fast",
-            "name": "AckGeneration",
+            "name": "Ack Generation",
             "options": "Fast,Custom",
-            "type": "list"
+            "type": "List"
         },
         {
             "default": "false",
-            "name": "UseDebugLogs",
+            "name": "Print Debug Logs",
             "options": "",
-            "type": "bool"
+            "type": "Bool"
         }
     ]
 }

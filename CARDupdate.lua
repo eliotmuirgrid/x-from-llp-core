@@ -1,5 +1,4 @@
 require "STAT.STATstatus"
-local Config = component.fields()
 
 function CARDupdate(UpdateTitle,UpdateText)
    local R =''

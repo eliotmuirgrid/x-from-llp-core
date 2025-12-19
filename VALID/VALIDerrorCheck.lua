@@ -1,5 +1,4 @@
---Error checking to perform on component Config values
-local Encodings = require "VALID.VALIDencodings"
+-- Error checking to perform on component configurations
 
 local function ValidHexFormat(input)
    -- Pattern to match a single \xNN sequence
@@ -19,40 +18,39 @@ end
 
 function VALIDerrorCheck()
    -- Remove white sapce from Prefix/suffix
-   component.setField{key='LLPPrefix',value=component.fields().LLPPrefix:gsub('%s','')}
-   component.setField{key='LLPSuffix',value=component.fields().LLPSuffix:gsub('%s','')}
-   local Configs = component.fields()
+   component.setField{key="LLP Prefix",value=Configs["LLP Prefix"]:gsub('%s','')}
+   component.setField{key="LLP Suffix",value=Configs["LLP Suffix"]:gsub('%s','')}
    local Separator = os.posix() and [[/]] or [[\]]
    local SslValid = false
-   -- Check file encoding
-   if not Encodings[Configs.MessageEncoding] then
-      error('File encoding '..Configs.MessageEncoding..' is not supported.')
-   end
+
    -- Check port
-   if Configs.Port == 0 then
-      error('Port field is empty.')
+   if Configs.Port <= 0 or Configs.Port == "" then
+      error('Port field is empty or has invalid value.')
    end
+   
    -- Check format of prefix and suffix
-   if not (ValidHexFormat(Configs.LLPPrefix) and ValidHexFormat(Configs.LLPSuffix)) then
-      error('LLP prefix/suffix is invalid.\nInput must begin with \\x and hex values must be between 0-9 and A-F.\nExample: \\x0B')
+   if not (ValidHexFormat(Configs["LLP Prefix"]) and ValidHexFormat(Configs["LLP Suffix"])) then
+      error('LLP Prefix/suffix is invalid.\nInput must begin with \\x and hex values must be between 0-9 and A-F.\nExample: \\x0B')
    end
+   
    -- Check certificate and key files  
-   if not (Configs.SSLCertificate == '') or not (Configs.SSLKey == '') then
-      if (Configs.SSLCertificate == '') or (Configs.SSLKey == '') then error('Both SSLCertificate and SSLKey must be specified to use SSL.')
-      elseif not (os.fs.access(Configs.SSLCertificate)) then
-         error('Unable to access SSL certificate file:\n'..Configs.SSLCertificate)      
-      elseif not (os.fs.access(Configs.SSLKey)) then
-         error('Unable to access SSL key file:\n'..Configs.SSLKey)
+   if not (Configs["SSL Certificate"] == '') or not (Configs["SSL Key"] == '') then
+      if (Configs["SSL Certificate"] == '') or (Configs["SSL Key"] == '') then error('Both SSL Certificate and SSL Key must be specified to use SSL.')
+      elseif not (os.fs.access(Configs["SSL Certificate"])) then
+         error('Unable to access SSL Certificate file:\n'..Configs["SSL Certificate"])      
+      elseif not (os.fs.access(Configs["SSL Key"])) then
+         error('Unable to access SSL Key file:\n'..Configs["SSL Key"])
       else
          SslValid = true
       end
    end
+   
    -- Check verify peer
-   if SslValid and Configs.VerifyPeer then
-      if (Configs.CaFile == '') then error('CaFile must be specified to use VerifyPeer.')
-      elseif not (os.fs.access(Configs.CaFile)) then
-         error('Unable to access Certificate Authority file:\n'..Configs.CaFile)
+   if SslValid and Configs["Verify Peer"] then
+      if (Configs["Certificate Authority File"] == '') then error('Certificate Authority File must be specified to use Verify Peer.')
+      elseif not (os.fs.access(Configs["Certificate Authority File"])) then
+         error('Unable to access Certificate Authority file:\n'..Configs["Certificate Authority File"])
       end
-   elseif Configs.VerifyPeer then error('SSL must be enabled to use VerifyPeer') end
-
+   elseif Configs["Verify Peer"] then error('SSL must be enabled to use Verify Peer') end
+   
 end

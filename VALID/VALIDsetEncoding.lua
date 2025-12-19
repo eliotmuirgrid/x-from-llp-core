@@ -1,8 +1,8 @@
-local Configs = component.fields()
-
 function VALIDsetEncoding()
-   local Encoding = Configs.MessageEncoding
-   if Encoding == '' then
-      component.setField{key='MessageEncoding',value=os.posix() and 'ISO-8859-1' or 'Windows-1252'}
+   if Configs["Message Encoding"] == "Use System Default" then
+      Configs["Message Encoding"] = os.posix() and 'ISO-8859-1' or 'Windows-1252'
+   else
+      Configs["Message Encoding"] = Configs["Message Encoding"]:match("%((.-)%)")
    end
+   LogDebug(json.serialize{data=Configs}) -- Print the configurations
 end
