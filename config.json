@@ -2,42 +2,49 @@
     "fields": [
         {
             "default": "65430",
+            "description": "The port number to listen for incoming connections.",
             "name": "Port",
             "options": "",
             "type": "Port"
         },
         {
             "default": "true",
+            "description": "Enable/disable timing out idle connections.",
             "name": "Enable Connection Timeout",
             "options": "",
             "type": "Bool"
         },
         {
             "default": "30",
+            "description": "Only required if Enable Connection Timeout configuration is set to true. Length of time in seconds to close idle connections.",
             "name": "Timeout After",
             "options": "",
             "type": "Number"
         },
         {
             "default": "",
+            "description": "Path to certificate file. If both certificate and key are provided, SSL will be enabled.",
             "name": "SSL Certificate",
             "options": "",
             "type": "File"
         },
         {
             "default": "",
+            "description": "Path to private key file. If both certificate and key are provided, SSL will be enabled.",
             "name": "SSL Key",
             "options": "",
             "type": "File"
         },
         {
             "default": "false",
+            "description": "Enable to verify the server sending you messages. Requires the Certificate Authority File to be provided.",
             "name": "Verify Peer",
             "options": "",
             "type": "Bool"
         },
         {
             "default": "",
+            "description": "Only required if Verify Peer configuration is set to true. Path to certificate authority file.",
             "name": "Certificate Authority File",
             "options": "",
             "type": "File"
@@ -50,24 +57,28 @@
         },
         {
             "default": "\\x0B",
+            "description": "Prefix to use in LLP data. Should be in the form of an escaped hex value.",
             "name": "LLP Prefix",
             "options": "",
             "type": "String"
         },
         {
             "default": "\\x1C\\x0D",
+            "description": "Suffix to use in LLP data. Should be in the form of an escaped hex value.",
             "name": "LLP Suffix",
             "options": "",
             "type": "String"
         },
         {
             "default": "Fast",
+            "description": "Type of ACK generation to be used. Custom must be defined inside ACKcustomAck.lua.",
             "name": "Ack Generation",
             "options": "Fast,Custom",
             "type": "List"
         },
         {
             "default": "false",
+            "description": "Enable/disable logging of additional debug information.",
             "name": "Print Debug Logs",
             "options": "",
             "type": "Bool"

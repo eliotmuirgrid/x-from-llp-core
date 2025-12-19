@@ -1,4 +1,4 @@
--- From LLP Component - Version 1.1
+-- From LLP Component - Version 1.1.1
 
 Configs = component.fields() -- Load all configurations
 
