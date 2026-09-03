@@ -1,0 +1,13 @@
+{
+    "Description": "<pre class=\"ql-syntax\" spellcheck=\"false\">STATerrorBlock(error)\n</pre><p><br></p><p>This can be used to output a red error in a status block for a component.</p><p><br></p><p><strong>EXAMPLE</strong></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">ui.setStatusMessage{\n  data=STATerrorBlock(\"A problem has occured.\")\n}\n</pre>",
+    "Name": "STATerrorBlock",
+    "Parameters": [
+        {
+            "Description": "<p>Error to display. <em><u>string</u></em></p>",
+            "Name": "",
+            "Required": false
+        }
+    ],
+    "ParameterTable": false,
+    "SummaryLine": "Display error block"
+}

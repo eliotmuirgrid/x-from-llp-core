@@ -1,0 +1,18 @@
+{
+    "Description": "<pre class=\"ql-syntax\" spellcheck=\"false\">STATrow(label, value)\n</pre><p><br></p><p>This is just a helpful routine for formatting HTML status help.  Here is an example of using it.</p><p><br></p><p><strong>EXAMPLE</strong></p><p><br></p><pre class=\"ql-syntax\" spellcheck=\"false\">local Status = STATrow(\"Age\", 14);\nui.setStatusMessage{data=Status}\n</pre>",
+    "Name": "STATrow",
+    "Parameters": [
+        {
+            "Description": "<p>Label - describing the value. <em><u>string</u></em></p>",
+            "Name": "",
+            "Required": false
+        },
+        {
+            "Description": "<p>Value - value being displayed. <em><u>string</u></em></p>",
+            "Name": "",
+            "Required": false
+        }
+    ],
+    "ParameterTable": false,
+    "SummaryLine": "Formats a label and value nicely for status."
+}
